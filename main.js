@@ -19,7 +19,7 @@ var execPath = "RScript"
 
 
 if(process.platform == WINDOWS){
-  //killStr = "taskkill /im Rscript.exe /f"
+  killStr = "taskkill /im Rscript.exe /f"
   appPath = appPath.replace(/\\/g, "\\\\");
   execPath = path.join(app.getAppPath(), "R-Portable-Win", "bin", "RScript.exe" )
 } else if(process.platform == MACOS){
@@ -143,11 +143,12 @@ app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  console.log('EVENT::window-all-closed')
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  cleanUpApplication()
-
+  if(process.platform==MACOS){
+    console.log('EVENT::window-all-closed')
+    // On OS X it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    cleanUpApplication()
+  }
 })
 
 app.on('activate', function () {
