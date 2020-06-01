@@ -58,6 +58,8 @@ export R_INCLUDE_DIR
 #R_DOC_DIR=/Library/Frameworks/R.framework/Resources/doc
 R_DOC_DIR=${R_HOME_DIR}/doc
 export R_DOC_DIR
+RHOME="${R_HOME_DIR}"
+export RHOME
 
 # Since this script can be called recursively, we allow R_ARCH to
 # be overridden from the environment.
