@@ -39,9 +39,8 @@ npm install
 # Run the app
 npm start
 # Build the Executable/App
-cd electron-quick-start
 npm run package-win
-OR
+# OR
 npm run package-mac 
 ```
 
